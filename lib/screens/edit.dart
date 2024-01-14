@@ -126,9 +126,6 @@ class _EditState extends State<Edit> {
               const SizedBox(
                 height: 20,
               ),
-              const SizedBox(
-                height: 20,
-              ),
               TextFormField(
                 controller: addressController,
                 decoration: const InputDecoration(

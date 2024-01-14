@@ -208,7 +208,7 @@ class _DetailspageState extends State<Detailspage> {
       var result = await userService.SaveUser(user);
       Navigator.pop(context, result);
     }
-    if (selectedImage == null) {}
+    // if (selectedImage == null) {}
   }
 
   void forclear() {

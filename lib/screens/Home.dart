@@ -5,6 +5,7 @@ import 'package:database/model/database_model.dart';
 import 'package:database/services/user-services.dart';
 import 'package:database/screens/edit.dart';
 import 'package:database/screens/view.dart';
+import 'package:database/screens/grid_view.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -101,10 +102,10 @@ class _HomeState extends State<Home> {
           ),
           IconButton(
             onPressed: () {
-              // Navigator.push(
-              //   context,
-              //   MaterialPageRoute(builder: (context) => const Gridview()),
-              // );
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const Gridview()),
+              );
             },
             icon: const Icon(Icons.grid_view),
             padding: const EdgeInsets.only(right: 30),
