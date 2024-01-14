@@ -44,143 +44,145 @@ class _DetailspageState extends State<Detailspage> {
             Form(
               key: _formkey,
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Center(
-                    child: CircleAvatar(
-                      radius: 50,
-                      child: IconButton(
-                          onPressed: () {
-                            pickImageFromGallery();
-                          },
-                          icon: Icon(Icons.camera_alt_outlined)),
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Center(
+                      child: CircleAvatar(
+                        radius: 50,
+                        child: IconButton(
+                            onPressed: () {
+                              pickImageFromGallery();
+                            },
+                            icon: Icon(Icons.person)),
+                      ),
                     ),
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  //   Container(
-                  //  width: 100,
-                  //  height: 100,
-                  //  decoration: BoxDecoration(
-                  //   image: DecorationImage(
-                  //     fit:BoxFit.cover,
-                  //   image: imagepath != null),
-                  //  ),
-                  //   ),
-                  TextFormField(
-                    controller: nameController,
-                    keyboardType: TextInputType.name,
-                    decoration: const InputDecoration(
-                      labelText: 'Name',
-                      hintText: 'Enter your full name',
-                      border: OutlineInputBorder(),
-                    ),
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Name Is Required';
-                      } else {
-                        return null;
-                      }
-                    },
-                    autovalidateMode: AutovalidateMode.onUserInteraction,
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  TextFormField(
-                    controller: studyController,
-                    decoration: const InputDecoration(
-                      labelText: 'Class',
-                      hintText: 'Enter your class',
-                      border: OutlineInputBorder(),
-                    ),
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'class Is Required';
-                      } else {
-                        return null;
-                      }
-                    },
-                    autovalidateMode: AutovalidateMode.onUserInteraction,
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  TextFormField(
-                    controller: admissionController,
-                    decoration: const InputDecoration(
-                      labelText: 'Admission number',
-                      hintText: 'Enter your Admission number',
-                      border: OutlineInputBorder(),
-                    ),
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Admission number Is Required';
-                      } else {
-                        return null;
-                      }
-                    },
-                    autovalidateMode: AutovalidateMode.onUserInteraction,
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  TextFormField(
-                    controller: addressController,
-                    decoration: const InputDecoration(
-                      labelText: 'address',
-                      hintText: 'Enter your address',
-                      border: OutlineInputBorder(),
-                    ),
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'address Is Required';
-                      } else {
-                        return null;
-                      }
-                    },
-                    autovalidateMode: AutovalidateMode.onUserInteraction,
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
 
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      ElevatedButton(
-                        style: const ButtonStyle(
-                            backgroundColor:
-                                MaterialStatePropertyAll(Colors.lightBlue)),
-                        onPressed: () async {
-                          saveDetails();
-                        },
-                        child: const Text(
-                          'Save Data',
-                          style: TextStyle(color: Colors.white),
-                        ),
-                      ),
-                      const SizedBox(
-                        width: 10,
-                      ),
-                      ElevatedButton(
-                        style: const ButtonStyle(
-                            backgroundColor:
-                                MaterialStatePropertyAll(Colors.red)),
-                        onPressed: () {
-                          forclear();
-                        },
-                        child: const Text(
-                          'Clear Data',
-                          style: TextStyle(color: Colors.white),
-                        ),
-                      )
-                    ],
-                  )
-                ],
-              ),
+                    // Container(
+                    //   width: 100,
+                    //   height: 100,
+                    //   decoration: BoxDecoration(
+                    //     image: DecorationImage(
+                    //       fit: BoxFit.cover,
+                    //       image: imagepath != null
+                    //           ? FileImage(imagepath!) as ImageProvider<Object>
+                    //           : AssetImage('assets/images/profile.jpg')
+                    //               as ImageProvider<Object>,
+                    //     ),
+                    //   ),
+                    // ),
+                  ]),
             ),
+            const SizedBox(
+              height: 20,
+            ),
+            TextFormField(
+              controller: nameController,
+              keyboardType: TextInputType.name,
+              decoration: const InputDecoration(
+                labelText: 'Name',
+                hintText: 'Enter your full name',
+                border: OutlineInputBorder(),
+              ),
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Name Is Required';
+                } else {
+                  return null;
+                }
+              },
+              autovalidateMode: AutovalidateMode.onUserInteraction,
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            TextFormField(
+              controller: studyController,
+              decoration: const InputDecoration(
+                labelText: 'Class',
+                hintText: 'Enter your class',
+                border: OutlineInputBorder(),
+              ),
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'class Is Required';
+                } else {
+                  return null;
+                }
+              },
+              autovalidateMode: AutovalidateMode.onUserInteraction,
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            TextFormField(
+              controller: admissionController,
+              decoration: const InputDecoration(
+                labelText: 'Admission number',
+                hintText: 'Enter your Admission number',
+                border: OutlineInputBorder(),
+              ),
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Admission number Is Required';
+                } else {
+                  return null;
+                }
+              },
+              autovalidateMode: AutovalidateMode.onUserInteraction,
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            TextFormField(
+              controller: addressController,
+              decoration: const InputDecoration(
+                labelText: 'address',
+                hintText: 'Enter your address',
+                border: OutlineInputBorder(),
+              ),
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'address Is Required';
+                } else {
+                  return null;
+                }
+              },
+              autovalidateMode: AutovalidateMode.onUserInteraction,
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                ElevatedButton(
+                  style: const ButtonStyle(
+                      backgroundColor:
+                          MaterialStatePropertyAll(Colors.lightBlue)),
+                  onPressed: () async {
+                    saveDetails(context);
+                  },
+                  child: const Text(
+                    'Save Data',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+                const SizedBox(
+                  width: 10,
+                ),
+                ElevatedButton(
+                  style: const ButtonStyle(
+                      backgroundColor: MaterialStatePropertyAll(Colors.red)),
+                  onPressed: () {
+                    forclear();
+                  },
+                  child: const Text(
+                    'Clear Data',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                )
+              ],
+            )
           ],
         ),
       ),
@@ -197,7 +199,7 @@ class _DetailspageState extends State<Detailspage> {
     });
   }
 
-  void saveDetails() async {
+  void saveDetails(BuildContext context) async {
     if (_formkey.currentState!.validate() && selectedImage != null) {
       var user = User();
       user.name = nameController.text;
@@ -208,7 +210,6 @@ class _DetailspageState extends State<Detailspage> {
       var result = await userService.SaveUser(user);
       Navigator.pop(context, result);
     }
-    // if (selectedImage == null) {}
   }
 
   void forclear() {

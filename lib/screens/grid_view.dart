@@ -41,7 +41,13 @@ class _GridviewState extends State<Gridview> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        actions: [IconButton(onPressed: () {}, icon: Icon(Icons.list))],
+        actions: [
+          IconButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: Icon(Icons.list))
+        ],
         backgroundColor: Colors.lightBlue,
         title: Text('GRID VIEW'),
       ),
@@ -82,8 +88,7 @@ class _GridviewState extends State<Gridview> {
                                 ? FileImage(
                                         File(_userList[index].selectedImage!))
                                     as ImageProvider<Object>?
-                                : const AssetImage(
-                                    'assets/images/userProfile.png'),
+                                : const AssetImage('assets/images/profile.jpg'),
                           ),
                           const SizedBox(height: 10),
                           Text(

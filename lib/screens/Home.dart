@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:database/screens/Create.dart';
 import 'package:database/screens/search.dart';
@@ -127,7 +129,12 @@ class _HomeState extends State<Home> {
                                 user: _userList[index],
                               )));
                 },
-                leading: const Icon(Icons.person),
+                leading: CircleAvatar(
+                    backgroundImage: _userList[index].selectedImage != null &&
+                            File(_userList[index].selectedImage!).existsSync()
+                        ? FileImage(File(_userList[index].selectedImage!))
+                            as ImageProvider<Object>?
+                        : const AssetImage('assets/images/profile.jpg')),
                 title: Text(_userList[index].name ?? ''),
                 subtitle: Text(_userList[index].study ?? ''),
                 trailing: Row(

@@ -1,3 +1,6 @@
+import 'dart:io';
+import 'package:database/screens/edit.dart';
+import 'package:database/screens/view.dart';
 import 'package:flutter/material.dart';
 import 'package:database/model/database_model.dart';
 import 'package:database/services/user-services.dart';
@@ -25,6 +28,7 @@ class _SearchScreenState extends State<SearchScreen> {
         userModel.study = user['study'];
         userModel.admission = user['admission'];
         userModel.address = user['address'];
+        userModel.selectedImage = user['selectedImage'];
 
         return userModel;
       }).toList();
@@ -110,6 +114,85 @@ class _SearchScreenState extends State<SearchScreen> {
                       borderRadius: BorderRadius.circular(10.0),
                     ),
                   ),
+                ),
+              ),
+              Expanded(
+                child: Container(
+                  child: _filteredUserList.isEmpty
+                      ? const Center(
+                          child: Text('Not Found'),
+                        )
+                      : ListView.builder(
+                          padding: const EdgeInsets.all(8),
+                          itemCount: _filteredUserList.length,
+                          itemBuilder: (context, index) => Card(
+                            child: ListTile(
+                              onTap: () => Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => Viewuser(
+                                    user: _filteredUserList[index],
+                                  ),
+                                ),
+                              ),
+                              leading: CircleAvatar(
+                                backgroundImage: _filteredUserList[index]
+                                                .selectedImage !=
+                                            null &&
+                                        File(_filteredUserList[index]
+                                                .selectedImage!)
+                                            .existsSync()
+                                    ? FileImage(File(_filteredUserList[index]
+                                            .selectedImage!))
+                                        as ImageProvider<Object>?
+                                    : const AssetImage(
+                                        'assets/images/profile.jpg'),
+                              ),
+                              title: Text(
+                                  _filteredUserList[index].name ?? 'No Name'),
+                              subtitle: Text(
+                                  _filteredUserList[index].study ?? 'No Study'),
+                              trailing: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  IconButton(
+                                    onPressed: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => Edit(
+                                            user: _filteredUserList[index],
+                                          ),
+                                        ),
+                                      ).then(
+                                        (data) {
+                                          if (data != null) {
+                                            getAllUserDetails();
+                                            showSuccesSnackBar(
+                                                'User updated successfully');
+                                          }
+                                        },
+                                      );
+                                    },
+                                    icon: const Icon(
+                                      Icons.edit,
+                                    ),
+                                  ),
+                                  IconButton(
+                                    onPressed: () {
+                                      deleteFormDialog(
+                                          context, _filteredUserList[index].id);
+                                    },
+                                    icon: const Icon(
+                                      Icons.delete,
+                                      color: Colors.red,
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
                 ),
               ),
             ])));
