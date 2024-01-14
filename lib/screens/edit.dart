@@ -205,7 +205,6 @@ class _EditState extends State<Edit> {
       var result = await userService.UpdateUser(user);
       Navigator.pop(context, result);
     }
-    // if (selectedImage == null) {}
   }
 
   void forclear() {
