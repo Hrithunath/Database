@@ -153,7 +153,7 @@ class _EditState extends State<Edit> {
                         backgroundColor:
                             MaterialStatePropertyAll(Colors.lightBlue)),
                     onPressed: () async {
-                      saveDetails();
+                      updateDetails();
                     },
                     child: const Text(
                       'Save Data',
@@ -193,7 +193,7 @@ class _EditState extends State<Edit> {
     });
   }
 
-  void saveDetails() async {
+  void updateDetails() async {
     if (_formkey.currentState!.validate()) {
       var user = User();
       user.id = widget.user.id;
