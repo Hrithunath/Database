@@ -1,9 +1,8 @@
 import 'dart:io';
-
-import 'package:database/services/user-services.dart';
 import 'package:flutter/material.dart';
-import 'package:database/model/database_model.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:database/model/database_model.dart';
+import 'package:database/services/user-services.dart';
 
 class Edit extends StatefulWidget {
   final User user;

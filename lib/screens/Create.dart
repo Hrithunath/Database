@@ -1,10 +1,10 @@
 import 'dart:io';
 
-import 'package:database/services/user-services.dart';
 import 'package:flutter/material.dart';
-import 'package:database/model/database_model.dart';
-import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:database/model/database_model.dart';
+
+import 'package:database/services/user-services.dart';
 
 class Detailspage extends StatefulWidget {
   const Detailspage({super.key});
@@ -45,16 +45,16 @@ class _DetailspageState extends State<Detailspage> {
               ),
               Center(
                 child: CircleAvatar(
-                  radius: 50,
                   child: IconButton(
                       onPressed: () {
                         pickImageFromGallery();
                       },
-                      icon: Icon(Icons.person)),
-                  // backgroundImage: selectedImage != null
-                  //     ? MemoryImage(selectedImage! as Uint8List)
-                  //     : AssetImage('assets/images/profile.jpg')
-                  //         as ImageProvider<Object>,
+                      icon: const Icon(Icons.image_outlined)),
+                  radius: 50,
+                  backgroundImage: selectedImage != null
+                      ? FileImage(File(selectedImage!))
+                          as ImageProvider<Object>?
+                      : const AssetImage('assets/images/profile.jpg'),
                 ),
               ),
               const SizedBox(

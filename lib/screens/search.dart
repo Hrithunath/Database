@@ -1,9 +1,9 @@
 import 'dart:io';
-import 'package:database/screens/edit.dart';
-import 'package:database/screens/view.dart';
 import 'package:flutter/material.dart';
 import 'package:database/model/database_model.dart';
 import 'package:database/services/user-services.dart';
+import 'package:database/screens/edit.dart';
+import 'package:database/screens/view.dart';
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({super.key});

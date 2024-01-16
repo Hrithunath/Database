@@ -15,78 +15,85 @@ class _ViewuserState extends State<Viewuser> {
     return Scaffold(
         appBar: AppBar(),
         body: Container(
-            padding: EdgeInsets.all(16.0),
-            child:
-                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              const Text(
-                "Full Details",
-                style: TextStyle(
-                    fontWeight: FontWeight.w600,
-                    color: Colors.blueGrey,
-                    fontSize: 20),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              Row(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const Text('Name',
-                      style: TextStyle(
-                          color: Colors.teal,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w600)),
+                  const Text(
+                    "Full Details",
+                    style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        color: Colors.blueGrey,
+                        fontSize: 20),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  const Row(
+                    children: [
+                      Text('Name',
+                          style: TextStyle(
+                              color: Colors.teal,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600)),
+                    ],
+                  ),
                   Padding(
                     padding: const EdgeInsets.only(left: 30),
                     child: Text(widget.user.name ?? '',
-                        style: TextStyle(fontSize: 16)),
+                        style: const TextStyle(fontSize: 16)),
                   ),
-                ],
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              Row(
-                children: [
-                  const Text('Class',
-                      style: TextStyle(
-                          color: Colors.teal,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w600)),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  const Row(
+                    children: [
+                      Text('Class',
+                          style: TextStyle(
+                              color: Colors.teal,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600)),
+                    ],
+                  ),
                   Padding(
                     padding: const EdgeInsets.only(left: 25),
                     child: Text(widget.user.study ?? '',
-                        style: TextStyle(fontSize: 16)),
+                        style: const TextStyle(fontSize: 16)),
                   ),
-                ],
-              ),
-              Row(
-                children: [
-                  const Text('Admission number',
-                      style: TextStyle(
-                          color: Colors.teal,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w600)),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  const Row(
+                    children: [
+                      Text('Admission number',
+                          style: TextStyle(
+                              color: Colors.teal,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600)),
+                    ],
+                  ),
                   Padding(
                     padding: const EdgeInsets.only(left: 25),
                     child: Text(widget.user.admission ?? '',
-                        style: TextStyle(fontSize: 16)),
+                        style: const TextStyle(fontSize: 16)),
                   ),
-                ],
-              ),
-              Row(
-                children: [
-                  const Text('Address',
-                      style: TextStyle(
-                          color: Colors.teal,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w600)),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  const Row(
+                    children: [
+                      Text('Address',
+                          style: TextStyle(
+                              color: Colors.teal,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600)),
+                    ],
+                  ),
                   Padding(
                     padding: const EdgeInsets.only(left: 25),
                     child: Text(widget.user.address ?? '',
-                        style: TextStyle(fontSize: 16)),
+                        style: const TextStyle(fontSize: 16)),
                   ),
-                ],
-              ),
-            ])));
+                ])));
   }
 }
