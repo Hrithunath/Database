@@ -54,7 +54,7 @@ class _HomeState extends State<Home> {
   deleteFormDialog(BuildContext context, userId) {
     return showDialog(
         context: context,
-        builder: (param) {
+        builder: (_) {
           return AlertDialog(
             title: const Text(
               'Are You Sure to Delete',
@@ -68,6 +68,7 @@ class _HomeState extends State<Home> {
                   onPressed: () async {
                     var result = await _userService.deleteUser(userId);
                     if (result != null) {
+                      // ignore: use_build_context_synchronously
                       Navigator.pop(context);
                       getAllUserDetails();
                       _showSuccessSnackBar('User Detail Deleted Success');
@@ -130,7 +131,7 @@ class _HomeState extends State<Home> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => Viewuser(
+                                builder: (context) => ViewUser(
                                       user: _userList[index],
                                     )));
                       },
@@ -159,7 +160,7 @@ class _HomeState extends State<Home> {
                                   if (data != null) {
                                     getAllUserDetails();
                                     _showSuccessSnackBar(
-                                        'User Detail Updated Success');
+                                        'User Detail Updated Successfully');
                                   }
                                 });
                               },
@@ -184,11 +185,11 @@ class _HomeState extends State<Home> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => Detailspage()))
+                  MaterialPageRoute(builder: (context) => const Detailspage()))
               .then((data) {
             if (data != null) {
               getAllUserDetails();
-              _showSuccessSnackBar('User Detail Added Success');
+              _showSuccessSnackBar('User Detail Added Successfully');
             }
           });
         },

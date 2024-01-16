@@ -1,8 +1,8 @@
 import 'dart:io';
+import 'package:database/screens/view.dart';
 import 'package:flutter/material.dart';
 import 'package:database/model/database_model.dart';
 import 'package:database/services/user-services.dart';
-import 'package:database/screens/view.dart';
 
 class Gridview extends StatefulWidget {
   const Gridview({super.key});
@@ -32,7 +32,6 @@ class _GridviewState extends State<Gridview> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     getAllUserDetails();
   }
@@ -46,10 +45,10 @@ class _GridviewState extends State<Gridview> {
               onPressed: () {
                 Navigator.pop(context);
               },
-              icon: Icon(Icons.list))
+              icon: const Icon(Icons.list))
         ],
         backgroundColor: Colors.lightBlue,
-        title: Text('GRID VIEW'),
+        title: const Text('GRID VIEW'),
       ),
       body: Container(
         child: _userList.isEmpty
@@ -70,7 +69,7 @@ class _GridviewState extends State<Gridview> {
                     onTap: () => Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => Viewuser(
+                        builder: (context) => ViewUser(
                           user: _userList[index],
                         ),
                       ),

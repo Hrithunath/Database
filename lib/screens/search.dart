@@ -77,6 +77,7 @@ class _SearchScreenState extends State<SearchScreen> {
                     onPressed: () async {
                       var result = await _userService.deleteUser(userId);
                       if (result != null) {
+                        // ignore: use_build_context_synchronously
                         Navigator.pop(context);
                         getAllUserDetails();
                         showSuccesSnackBar('User Details Deleted succesfully');
@@ -130,7 +131,7 @@ class _SearchScreenState extends State<SearchScreen> {
                               onTap: () => Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => Viewuser(
+                                  builder: (context) => ViewUser(
                                     user: _filteredUserList[index],
                                   ),
                                 ),

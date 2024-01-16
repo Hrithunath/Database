@@ -24,7 +24,6 @@ class _EditState extends State<Edit> {
   String? selectedImage;
   @override
   void initState() {
-    // TODO: implement initState
     setState(() {
       nameController.text = widget.user.name ?? "";
       studyController.text = widget.user.study ?? "";
@@ -49,7 +48,7 @@ class _EditState extends State<Edit> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Text(
-                'edit new user',
+                'Edit Student Details',
                 style: TextStyle(
                   fontSize: 25,
                 ),
@@ -64,10 +63,10 @@ class _EditState extends State<Edit> {
                       onPressed: () {
                         pickImageFromGallery();
                       },
-                      icon: Icon(Icons.person)),
+                      icon: const Icon(Icons.person)),
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               TextFormField(
                 controller: nameController,
                 decoration: const InputDecoration(
@@ -202,6 +201,7 @@ class _EditState extends State<Edit> {
       user.address = addressController.text;
       user.selectedImage = selectedImage;
       var result = await userService.UpdateUser(user);
+      // ignore: use_build_context_synchronously
       Navigator.pop(context, result);
     }
   }

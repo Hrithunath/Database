@@ -38,23 +38,23 @@ class _DetailspageState extends State<Detailspage> {
           child: Column(
             children: [
               const Text(
-                'Add new user',
+                'Add Student Details',
                 style: TextStyle(
                   fontSize: 25,
                 ),
               ),
               Center(
                 child: CircleAvatar(
-                  child: IconButton(
-                      onPressed: () {
-                        pickImageFromGallery();
-                      },
-                      icon: const Icon(Icons.image_outlined)),
                   radius: 50,
                   backgroundImage: selectedImage != null
                       ? FileImage(File(selectedImage!))
                           as ImageProvider<Object>?
                       : const AssetImage('assets/images/profile.jpg'),
+                  child: IconButton(
+                      onPressed: () {
+                        pickImageFromGallery();
+                      },
+                      icon: const Icon(Icons.image_outlined)),
                 ),
               ),
               const SizedBox(
@@ -194,6 +194,7 @@ class _DetailspageState extends State<Detailspage> {
       user.address = addressController.text;
       user.selectedImage = selectedImage;
       var result = await userService.SaveUser(user);
+      // ignore: use_build_context_synchronously
       Navigator.pop(context, result);
     }
   }
